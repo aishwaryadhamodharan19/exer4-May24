@@ -24,9 +24,12 @@ jobs:
           
       - name: Install dependencies
         run: |
-          npm init
-          npm install
+          if [ -e package-lock.json ]; then
           npm ci
+          else
+          npm init --yes
+          npm i
+          fi
         
       - name: Code Coverage
         run: npm test -- --coverage
