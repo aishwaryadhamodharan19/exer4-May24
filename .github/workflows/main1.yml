@@ -25,7 +25,7 @@ jobs:
           if [ -e package-lock.json ]; then
           npm ci
           else
-          npm init
+          npm install exer4-may24
           npm ci
           fi
         
