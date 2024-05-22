@@ -22,12 +22,11 @@ jobs:
           
       - name: Install dependencies
         run: |
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
+          if [ -e package-lock.json ]; then
           npm ci
           else
-          npm i
+          npm init
+          npm ci
           fi
         
       - name: Code Coverage
