@@ -23,7 +23,10 @@ jobs:
           key: buildCache
           
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: |
+          npm init
+          npm install
+          npm ci
         
       - name: Code Coverage
         run: npm test -- --coverage
