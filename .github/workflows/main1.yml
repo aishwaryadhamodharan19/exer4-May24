@@ -18,7 +18,12 @@ jobs:
           key: buildCache
           
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
         
       - name: Code Coverage
         run: npm test -- --coverage
