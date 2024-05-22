@@ -21,13 +21,7 @@ jobs:
           key: buildCache
           
       - name: Install dependencies
-        run: |
-          if [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm install exer4-may24
-          npm ci
-          fi
+        run: npm ci --legacy-peer-deps
         
       - name: Code Coverage
         run: npm test -- --coverage
